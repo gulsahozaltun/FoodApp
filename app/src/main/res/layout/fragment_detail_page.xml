@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="foodObject"
+            type="com.irempakyurek.foodapp.entity.Foods" />
+
+        <variable
+            name="detailPageFragment"
+            type="com.irempakyurek.foodapp.fragment.DetailPageFragment" />
+
+        <variable
+            name="foodPrice"
+            type="String" />
+
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="100dp"
+            tools:context=".fragment.DetailPageFragment">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar_detail_page"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/bubblegum_sans"
+                    android:text="Detay"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="18dp">
+
+                </TextView>
+            </androidx.appcompat.widget.Toolbar>
+
+            <ImageView
+                android:id="@+id/imgFoodImage"
+                android:layout_width="271dp"
+                android:layout_height="272dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtFoodName"
+                app:srcCompat="@drawable/hamburger" />
+
+            <TextView
+                android:id="@+id/txtFoodName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/bubblegum_sans"
+                android:text="@{foodObject.food_name}"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar_detail_page" />
+
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imgFoodImage"
+                app:selectionRequired="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipSmall"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="60dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="16dp"
+                    android:fontFamily="@font/bubblegum_sans"
+                    android:onClick="@{() -> detailPageFragment.smallChipClicked(foodObject.food_price)}"
+                    android:text="S"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    app:checkedIcon="@drawable/ic_check"
+                    app:checkedIconTint="#FFFFFF"
+                    app:checkedIconVisible="true"
+                    app:chipBackgroundColor="@color/yellow_light"
+                    app:chipIconVisible="false"
+                    app:layout_constraintEnd_toStartOf="@+id/chipMedium"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imgFoodImage" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipMedium"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="60dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="16dp"
+                    android:fontFamily="@font/bubblegum_sans"
+                    android:onClick="@{() -> detailPageFragment.mediumChipClicked(foodObject.food_price)}"
+                    android:text="M"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    app:checkedIcon="@drawable/ic_check"
+                    app:checkedIconTint="#FFFFFF"
+                    app:checkedIconVisible="true"
+                    app:chipBackgroundColor="@color/yellow_light"
+                    app:layout_constraintEnd_toStartOf="@+id/chipLarge"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/chipSmall"
+                    app:layout_constraintTop_toBottomOf="@+id/imgFoodImage" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipLarge"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="60dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="16dp"
+                    android:fontFamily="@font/bubblegum_sans"
+                    android:onClick="@{() -> detailPageFragment.largeChipClicked(foodObject.food_price)}"
+                    android:text="L"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    app:checkedIcon="@drawable/ic_check"
+                    app:checkedIconTint="#FFFFFF"
+                    app:checkedIconVisible="true"
+                    app:chipBackgroundColor="@color/yellow_light"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/chipMedium"
+                    app:layout_constraintTop_toBottomOf="@+id/imgFoodImage" />
+
+
+            </com.google.android.material.chip.ChipGroup>
+
+            <Button
+                android:id="@+id/btnAddToCart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg"
+                android:text="@string/add_to_cart"
+                app:icon="@drawable/ic_shopping_cart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtFoodPrice" />
+
+            <TextView
+                android:id="@+id/txtFoodPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/bubblegum_sans"
+                android:text='@{String.valueOf(foodPrice) + "\u20BA"}'
+                android:textColor="#A1000000"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/chipGroup" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</layout>

@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">FoodApp</string>
+    <string name="app_name" >Ekle Gelsin</string>
+    <string name="add_to_cart">Sepete Ekle</string>
+    <string name="profil">Bu uygulamamızda insanların evden çıkmadan saniyeler içinde istediği ürünleri sipariş verebilmelerini amaçladık.</string>
+    <string name="contact">Gülşah Özaltun:\ngulsahozaltun@gmail.com\nİrem Pakyürek:\nirempakyurek@gmail.com\nİslim Akkaya: \nislimakkaya@gmail.com</string>
 </resources>

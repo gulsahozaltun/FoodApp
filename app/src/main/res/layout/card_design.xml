@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="foodObject" type="com.irempakyurek.foodapp.entity.Foods" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvFood"
+        app:cardElevation="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@color/white"
+        app:cardCornerRadius="20dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtFoodName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bubblegum_sans"
+                android:text="@{foodObject.food_name}"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toTopOf="@+id/txtFoodPrice"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/imgFoodImage"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imgFoodImage"
+                android:layout_width="156dp"
+                android:layout_height="159dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/hamburger" />
+
+            <TextView
+                android:id="@+id/txtFoodPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bubblegum_sans"
+                android:text='@{String.valueOf(foodObject.food_price) + "\u20BA"}'
+                android:textAlignment="textStart"
+                android:textColor="@color/black_light"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/btnDetail"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/imgFoodImage"
+                app:layout_constraintTop_toBottomOf="@+id/txtFoodName" />
+
+            <Button
+                android:id="@+id/btnDetail"
+                android:layout_width="55dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_style"
+                android:backgroundTint="@null"
+                android:textAlignment="center"
+                app:icon="@drawable/ic_next"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/imgFoodImage"
+                app:layout_constraintTop_toBottomOf="@+id/txtFoodPrice" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>
